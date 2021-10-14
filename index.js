@@ -22,18 +22,20 @@ var app = {
 			
 			console.log(`temperature: ${readout.temperature}°C`);
 			
-			if (readout.temperature == 24) {
-				blinkInterval = setInterval(blinkLED, 50);
+			if (readout.temperature < 24) {
+				blinkInterval = setInterval(blinkLED, 900);
+			} else if (readout.temperature == 24) {
+				blinkInterval = setInterval(blinkLED, 500);
 			} else if (readout.temperature == 25) {
-				blinkInterval = setInterval(blinkLED, 150);
+				blinkInterval = setInterval(blinkLED, 350);
 			} else if (readout.temperature == 26) {
 				blinkInterval = setInterval(blinkLED, 250);
 			} else if (readout.temperature == 27) {
-				blinkInterval = setInterval(blinkLED, 350);
-			} else if (readout.temperature == 28) {
-				blinkInterval = setInterval(blinkLED, 500);
+				blinkInterval = setInterval(blinkLED, 150);
+			} else if (readout.temperature <= 28) {
+				blinkInterval = setInterval(blinkLED, 50);
 			} else {
-				blinkInterval = setInterval(blinkLED, 900);
+				console.log('error')
 			}
     	}
     	
